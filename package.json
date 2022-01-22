@@ -28,7 +28,10 @@
 	},
 	"react-dotenv": {
 		"whitelist": [
-			"API"
+			"WEATHER_API",
+			"BING_API",
+			"BING_HOST",
+			"BING_PATH"
 		]
 	},
 	"browserslist": {

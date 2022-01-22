@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import {
 	Button,
 	FloatingLabel,
@@ -6,20 +7,40 @@ import {
 	Tooltip,
 } from 'react-bootstrap'
 
-const Input = () => {
+const Input = ({ load }) => {
+	const [inText, setInText] = useState('')
+
+	const handleSubmit = async (e) => {
+		e.preventDefault()
+		console.log(await load(inText))
+	}
+
+	const handleChange = (e) => {
+		setInText(e.target.value)
+	}
+
 	return (
-		<Form className='d-flex m-3'>
-			<Form.Group>
+		<Form className='d-flex m-3 justify-content-center' onSubmit={handleSubmit}>
+			{/* Input Form */}
+			<Form.Group className='px-2'>
 				<OverlayTrigger
 					placement='top'
 					overlay={<Tooltip>Insert name of city</Tooltip>}
 				>
 					<FloatingLabel controlId='city' label='City'>
-						<Form.Control type='text' placeholder='city' />
+						<Form.Control
+							value={inText}
+							onChange={handleChange}
+							type='text'
+							placeholder='city'
+						/>
 					</FloatingLabel>
 				</OverlayTrigger>
 			</Form.Group>
-			<Button>Search</Button>
+			{/* Submit Button */}
+			<Button type='submit' className='px-2'>
+				Search
+			</Button>
 		</Form>
 	)
 }
