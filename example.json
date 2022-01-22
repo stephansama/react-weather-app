@@ -1,0 +1,44 @@
+{
+	"coord": {
+		"lon": -90.1979,
+		"lat": 38.6273
+	},
+	"weather": [
+		{
+			"id": 800,
+			"main": "Clear",
+			"description": "clear sky",
+			"icon": "01n"
+		}
+	],
+	"base": "stations",
+	"main": {
+		"temp": 264.7,
+		"feels_like": 264.7,
+		"temp_min": 262.56,
+		"temp_max": 266.29,
+		"pressure": 1033,
+		"humidity": 76
+	},
+	"visibility": 10000,
+	"wind": {
+		"speed": 0.45,
+		"deg": 68,
+		"gust": 0.89
+	},
+	"clouds": {
+		"all": 0
+	},
+	"dt": 1642832705,
+	"sys": {
+		"type": 2,
+		"id": 2009674,
+		"country": "US",
+		"sunrise": 1642857226,
+		"sunset": 1642893041
+	},
+	"timezone": -21600,
+	"id": 4407066,
+	"name": "St Louis",
+	"cod": 200
+}
