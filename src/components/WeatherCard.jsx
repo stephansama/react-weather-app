@@ -20,9 +20,6 @@ const WeatherCard = ({ data, select, selected }) => {
 		select(data.idd)
 	}
 
-	console.log(selected.name)
-	console.log(data.name)
-
 	return (
 		<Card
 			onClick={handleSelect}
@@ -42,7 +39,9 @@ const WeatherCard = ({ data, select, selected }) => {
 			/>
 			<Card.ImgOverlay
 				className='d-flex justify-content-center align-items-center'
-				style={selected.name === data.name ? selectedStyle : regularStyle}
+				style={
+					selected && selected.name === data.name ? selectedStyle : regularStyle
+				}
 			>
 				{data.name}
 			</Card.ImgOverlay>
