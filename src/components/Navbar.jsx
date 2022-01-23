@@ -2,8 +2,8 @@ import { Nav } from 'react-bootstrap'
 
 const Navbar = () => {
 	return (
-		<Nav className='d-flex mt-2 justify-content-center'>
-			<h1>React Weather Application</h1>
+		<Nav className='d-flex p-3 text-center justify-content-center bg-light'>
+			<h1>Reactive Weather Application</h1>
 		</Nav>
 	)
 }
