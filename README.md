@@ -2,14 +2,14 @@
 
 **Created by: [Stephan Randle](https://github.com/stephansama)**
 
-[Click Here]() to see the deployed application
+[Click Here](https://epic-chandrasekhar-8ba45f.netlify.app/) to see the deployed application
 
 **Program Description**
 
 Load weather information from openweather api
 and uses bing image search to find pictures of weather locations
 
-![Test](assets/screen1.png)
+![Screenshot](assets/screen1.png)
 
 **APIs**
 
