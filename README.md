@@ -2,6 +2,9 @@
 
 Stephan Randle
 
+Load weather information from openweather api
+and uses bing image search to find pictures of weather locations
+
 Packages
 
 -   bootstrap

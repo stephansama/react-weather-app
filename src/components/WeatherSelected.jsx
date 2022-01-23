@@ -7,80 +7,73 @@ const WeatherSelected = ({ selected }) => {
 		return (
 			<>
 				<Row className='d-flex h-100 justify-content-center align-items-center'>
-					<Container className='col-md-6 py-2 d-grid h-100'>
-						<Row className='col-12 d-flex align-items-center'>
-							<h1 className='display-3 text-center'>{selected.name}</h1>
-						</Row>
-						<Row className='h-100'>
-							<Accordion defaultActiveKey='0'>
-								<Accordion.Item eventKey='0'>
-									<Accordion.Header>Temperature</Accordion.Header>
-									<Accordion.Body>
-										<Row>
-											<Col className='text-end'>Exact Temperature:</Col>
-											<Col>{selected.main.temp}&deg; F</Col>
-										</Row>
-										<Row>
-											<Col className='text-end'>Feels Like:</Col>
-											<Col>{selected.main.feels_like}&deg; F</Col>
-										</Row>
-										<Row>
-											<Col className='text-end'>Minimum Temperature:</Col>
-											<Col>{selected.main.temp_min}&deg; F</Col>
-										</Row>
-										<Row>
-											<Col className='text-end'>Maximum Temperature:</Col>
-											<Col>{selected.main.temp_max}&deg; F</Col>
-										</Row>
-										<Row>
-											<Col className='text-end'>Pressure:</Col>
-											<Col>{selected.main.pressure}hPa</Col>
-										</Row>
-										<Row>
-											<Col className='text-end'>Humidity:</Col>
-											<Col>{selected.main.humidity}%</Col>
-										</Row>
-									</Accordion.Body>
-								</Accordion.Item>
-								<Accordion.Item eventKey='1'>
-									<Accordion.Header>Wind</Accordion.Header>
-									<Accordion.Body>
-										<Row>
-											<Col className='text-end'>Speed:</Col>
-											<Col>{selected.wind.speed}mph</Col>
-										</Row>
-										<Row>
-											<Col className='text-end'>Degree:</Col>
-											<Col>{selected.wind.deg}&deg;</Col>
-										</Row>
-										<Row>
-											<Col className='text-end'>Gust:</Col>
-											<Col>{selected.wind.gust}</Col>
-										</Row>
-									</Accordion.Body>
-								</Accordion.Item>
-							</Accordion>
-						</Row>
+					<Container className='col-md-6 py-2 d-flex flex-column'>
+						<Accordion defaultActiveKey='0'>
+							<Accordion.Item eventKey='0'>
+								<Accordion.Header>Temperature</Accordion.Header>
+								<Accordion.Body>
+									<Row>
+										<Col className='text-end'>Exact Temperature:</Col>
+										<Col>{selected.main.temp}&deg; F</Col>
+									</Row>
+									<Row>
+										<Col className='text-end'>Feels Like:</Col>
+										<Col>{selected.main.feels_like}&deg; F</Col>
+									</Row>
+									<Row>
+										<Col className='text-end'>Minimum Temperature:</Col>
+										<Col>{selected.main.temp_min}&deg; F</Col>
+									</Row>
+									<Row>
+										<Col className='text-end'>Maximum Temperature:</Col>
+										<Col>{selected.main.temp_max}&deg; F</Col>
+									</Row>
+									<Row>
+										<Col className='text-end'>Pressure:</Col>
+										<Col>{selected.main.pressure}hPa</Col>
+									</Row>
+									<Row>
+										<Col className='text-end'>Humidity:</Col>
+										<Col>{selected.main.humidity}%</Col>
+									</Row>
+								</Accordion.Body>
+							</Accordion.Item>
+							<Accordion.Item eventKey='1'>
+								<Accordion.Header>Wind</Accordion.Header>
+								<Accordion.Body>
+									<Row>
+										<Col className='text-end'>Speed:</Col>
+										<Col>{selected.wind.speed}mph</Col>
+									</Row>
+									<Row>
+										<Col className='text-end'>Degree:</Col>
+										<Col>{selected.wind.deg}&deg;</Col>
+									</Row>
+									<Row>
+										<Col className='text-end'>Gust:</Col>
+										<Col>{selected.wind.gust}</Col>
+									</Row>
+								</Accordion.Body>
+							</Accordion.Item>
+						</Accordion>
 					</Container>
-					<Carousel
-						fade
-						className='col-md-6 my-1'
-						style={{ height: carouselHeight }}
-					>
-						{selected.thumbnail.map((elem, i) => (
-							<Carousel.Item key={i}>
-								<img
-									style={{
-										height: carouselHeight,
-										objectFit: 'cover',
-										borderRadius: '8px',
-									}}
-									className='d-block w-100'
-									src={elem}
-								/>
-							</Carousel.Item>
-						))}
-					</Carousel>
+					<Container className='col-md-6 my-1'>
+						<Carousel fade style={{ height: carouselHeight }}>
+							{selected.thumbnail.map((elem, i) => (
+								<Carousel.Item key={i}>
+									<img
+										style={{
+											height: carouselHeight,
+											objectFit: 'cover',
+											borderRadius: '8px',
+										}}
+										className='d-block w-100'
+										src={elem}
+									/>
+								</Carousel.Item>
+							))}
+						</Carousel>
+					</Container>
 				</Row>
 			</>
 		)

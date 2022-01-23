@@ -87,6 +87,7 @@ const App = () => {
 								key={i}
 								data={{ ...elem, idd: i }}
 								select={selectCard}
+								selected={locations[selected]}
 							/>
 						))}
 					</Row>
