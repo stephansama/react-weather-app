@@ -67,6 +67,7 @@ const WeatherSelected = ({ selected }) => {
 											objectFit: 'cover',
 											borderRadius: '8px',
 										}}
+										alt=''
 										className='d-block w-100'
 										src={elem}
 									/>
