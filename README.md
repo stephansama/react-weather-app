@@ -1,4 +1,4 @@
-**Reactive Weather Web Application**
+### Reactive Weather Web Application
 
 **Created by: [Stephan Randle](https://github.com/stephansama)**
 
@@ -6,8 +6,7 @@
 
 **Program Description**
 
-Load weather information from openweather api
-and uses bing image search to find pictures of weather locations
+This web application allows users to query for weather information based on location.
 
 ![Screenshot](assets/screen1.png)
 

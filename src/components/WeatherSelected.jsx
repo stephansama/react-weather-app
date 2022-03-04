@@ -1,62 +1,15 @@
-import { Accordion, Card, Carousel, Col, Container, Row } from 'react-bootstrap'
+import { Accordion, Carousel, Col, Container, Row } from 'react-bootstrap'
 
-const carouselHeight = '300px'
+const carouselHeight = '500px'
+
+const tableStyle = { width: '50%', textAlign: 'end' }
 
 const WeatherSelected = ({ selected }) => {
 	const loaded = () => {
 		return (
 			<>
 				<Row className='d-flex h-100 justify-content-center align-items-center'>
-					<Container className='col-md-6 py-2 d-flex flex-column'>
-						<Accordion defaultActiveKey='0'>
-							<Accordion.Item eventKey='0'>
-								<Accordion.Header>Temperature</Accordion.Header>
-								<Accordion.Body>
-									<Row>
-										<Col className='text-end'>Exact Temperature:</Col>
-										<Col>{selected.main.temp}&deg; F</Col>
-									</Row>
-									<Row>
-										<Col className='text-end'>Feels Like:</Col>
-										<Col>{selected.main.feels_like}&deg; F</Col>
-									</Row>
-									<Row>
-										<Col className='text-end'>Minimum Temperature:</Col>
-										<Col>{selected.main.temp_min}&deg; F</Col>
-									</Row>
-									<Row>
-										<Col className='text-end'>Maximum Temperature:</Col>
-										<Col>{selected.main.temp_max}&deg; F</Col>
-									</Row>
-									<Row>
-										<Col className='text-end'>Pressure:</Col>
-										<Col>{selected.main.pressure}hPa</Col>
-									</Row>
-									<Row>
-										<Col className='text-end'>Humidity:</Col>
-										<Col>{selected.main.humidity}%</Col>
-									</Row>
-								</Accordion.Body>
-							</Accordion.Item>
-							<Accordion.Item eventKey='1'>
-								<Accordion.Header>Wind</Accordion.Header>
-								<Accordion.Body>
-									<Row>
-										<Col className='text-end'>Speed:</Col>
-										<Col>{selected.wind.speed}mph</Col>
-									</Row>
-									<Row>
-										<Col className='text-end'>Degree:</Col>
-										<Col>{selected.wind.deg}&deg;</Col>
-									</Row>
-									<Row>
-										<Col className='text-end'>Gust:</Col>
-										<Col>{selected.wind.gust}</Col>
-									</Row>
-								</Accordion.Body>
-							</Accordion.Item>
-						</Accordion>
-					</Container>
+					{/* IMAGES */}
 					<Container className='col-md-6 my-1'>
 						<Carousel fade style={{ height: carouselHeight }}>
 							{selected.thumbnail.map((elem, i) => (
@@ -67,13 +20,88 @@ const WeatherSelected = ({ selected }) => {
 											objectFit: 'cover',
 											borderRadius: '8px',
 										}}
-										alt=''
 										className='d-block w-100'
 										src={elem}
 									/>
 								</Carousel.Item>
 							))}
 						</Carousel>
+					</Container>
+					{/* INFORMATION SECTION */}
+					<Container className='col-md-6 py-2 d-flex flex-column'>
+						<h1 className='fs-4'>{selected.name}</h1>
+						<table class='table'>
+							<thead>
+								<tr>
+									<th>Temperature</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td style={tableStyle} scope='row'>
+										Exact Temperature:
+									</td>
+									<td>{selected.main.temp}&deg; F</td>
+								</tr>
+								<tr>
+									<td style={tableStyle} scope='row'>
+										Feels Like:
+									</td>
+									<td>{selected.main.feels_like}&deg; F</td>
+								</tr>
+								<tr>
+									<td style={tableStyle} scope='row'>
+										Minimum Temperature:
+									</td>
+									<td>{selected.main.temp_min}&deg; F</td>
+								</tr>
+								<tr>
+									<td style={tableStyle} scope='row'>
+										Maximum Temperature:
+									</td>
+									<td>{selected.main.temp_max}&deg; F</td>
+								</tr>
+								<tr>
+									<td style={tableStyle} scope='row'>
+										Pressure:
+									</td>
+									<td>{selected.main.pressure}hPa</td>
+								</tr>
+								<tr>
+									<td style={tableStyle} scope='row'>
+										Humidity:
+									</td>
+									<td>{selected.main.humidity}%</td>
+								</tr>
+							</tbody>
+						</table>
+						<table className='table'>
+							<thead>
+								<tr>
+									<th>Wind</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td style={tableStyle} scope='row'>
+										Speed:
+									</td>
+									<td>{selected.wind.speed}mph</td>
+								</tr>
+								<tr>
+									<td style={tableStyle} scope='row'>
+										Degree:
+									</td>
+									<td>{selected.wind.deg}&deg;</td>
+								</tr>
+								<tr>
+									<td style={tableStyle} scope='row'>
+										Gust:
+									</td>
+									<td>{selected.wind.gust}</td>
+								</tr>
+							</tbody>
+						</table>
 					</Container>
 				</Row>
 			</>
