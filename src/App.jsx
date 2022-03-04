@@ -1,6 +1,5 @@
 import { Container, Row } from 'react-bootstrap'
 import { useState, useEffect } from 'react'
-import env from 'react-dotenv'
 
 // Custom Components
 import Navbar from './components/Navbar'
@@ -10,8 +9,13 @@ import WeatherCard from './components/WeatherCard'
 import WeatherSelected from './components/WeatherSelected'
 
 // Global Variables
-const { WEATHER_API, BING_API, BING_HOST, BING_PATH } = env
-const BING_API_TEMPLATE = `https://${BING_HOST}${BING_PATH}?count=5&q=[term]`
+const {
+	REACT_APP_WEATHER_API,
+	REACT_APP_BING_API,
+	REACT_APP_BING_HOST,
+	REACT_APP_BING_PATH,
+} = process.env
+const BING_API_TEMPLATE = `https://${REACT_APP_BING_HOST}${REACT_APP_BING_PATH}?count=5&q=[term]`
 const WEATHER_API_TEMPLATE =
 	'https://api.openweathermap.org/data/2.5/weather?units=imperial&q=[local]&appid=[API]'
 
@@ -28,7 +32,7 @@ const App = () => {
 		const response = await fetch(
 			WEATHER_API_TEMPLATE.replace('[local]', weatherLocation).replace(
 				'[API]',
-				WEATHER_API
+				REACT_APP_WEATHER_API
 			)
 		)
 
@@ -53,7 +57,7 @@ const App = () => {
 	const loadBingImage = async (term) => {
 		const response = await fetch(BING_API_TEMPLATE.replace('[term]', term), {
 			method: 'GET',
-			headers: { 'Ocp-Apim-Subscription-Key': BING_API },
+			headers: { 'Ocp-Apim-Subscription-Key': REACT_APP_BING_API },
 		})
 		const data = await response.json()
 
@@ -71,12 +75,13 @@ const App = () => {
 		setSelected(index)
 	}
 
+	// load St. Louis by default
 	useEffect(() => {
 		if (locations.length === 0) loadWeatherData('St. Louis')
 	}, [])
 
 	return (
-		<Container className='d-flex flex-column h-100' fluid>
+		<div className='d-flex flex-column h-100 w-100'>
 			<Navbar />
 			<Container className='d-flex flex-grow-1 flex-column'>
 				<Input isInList={checkLocationList} load={loadWeatherData} />
@@ -95,7 +100,7 @@ const App = () => {
 				<WeatherSelected selected={locations[selected]} />
 			</Container>
 			<Footer />
-		</Container>
+		</div>
 	)
 }
 

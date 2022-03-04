@@ -22,5 +22,4 @@ and uses bing image search to find pictures of weather locations
 -   [react](https://www.npmjs.com/package/react)
 -   [react-bootstrap](https://www.npmjs.com/package/react-bootstrap)
 -   [react-dom](https://www.npmjs.com/package/react-dom)
--   [react-dotenv](https://www.npmjs.com/package/react-dotenv)
 -   [react-scripts](https://www.npmjs.com/package/react-scripts)
