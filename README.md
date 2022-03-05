@@ -4,7 +4,7 @@
 [![React JS](https://img.shields.io/badge/React%20JS-17.0.2-61DAFB?style=flat-square&logo=react)](https://getbootstrap.com/docs/)
 
 [![Microsoft Bing API](https://img.shields.io/badge/Microsoft%20Bing-API-258FFA?style=flat-square&logo=microsoftbing)](https://docs.microsoft.com/en-us/bing/search-apis/bing-image-search/quickstarts/quickstarts)
-[![Open Weather Map API](https://img.shields.io/badge/Open%20Weather%20Map-API-258FFA?style=flat-square&logo=icloud)](https://openweathermap.org/current)
+[![Open Weather Map API](https://img.shields.io/badge/Open%20Weather%20Map-API-E86342?style=flat-square)](https://openweathermap.org/current)
 
 ### Quick Start
 
